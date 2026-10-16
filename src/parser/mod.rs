@@ -7398,6 +7398,8 @@ impl<'a> Parser<'a> {
             ObjectType::Sequence
         } else if self.parse_keyword(Keyword::STAGE) {
             ObjectType::Stage
+        } else if self.parse_keywords(&[Keyword::EXTERNAL, Keyword::VOLUME]) {
+            ObjectType::ExternalVolume
         } else if self.dialect.supports_file_format_commands()
             && self.parse_keywords(&[Keyword::FILE, Keyword::FORMAT])
         {
